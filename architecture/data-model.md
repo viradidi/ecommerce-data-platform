@@ -1,18 +1,19 @@
-# E-Commerce Data Platform — Data Model
+# E-Commerce Data Model
 
-## 1. Purpose
+## Overview
 
-This document defines the logical data model used by the E-Commerce Data Platform.
+The E-Commerce Data Platform uses a layered data model designed to support
+reliable ingestion, analytical workloads, reporting, and downstream data
+products.
 
-The model represents core transactional entities and provides the foundation for downstream analytical processing.
-
-The design separates operational entities from analytical models so that raw source data can be transformed into trusted business datasets.
+The model separates operational entities from analytical representations so
+that source data can evolve without directly breaking downstream consumers.
 
 ---
 
-## 2. Core Entities
+## Core Business Entities
 
-The initial platform contains six core entities:
+The platform is centered around the following entities:
 
 - Customers
 - Products
@@ -20,76 +21,75 @@ The initial platform contains six core entities:
 - Orders
 - Order Items
 - Payments
+- Shipments
 
 ---
 
-## 3. Entity Relationship
+## Entity Relationships
 
 ```text
-                    +----------------+
-                    |   CATEGORIES   |
-                    |----------------|
-                    | category_id PK |
-                    | category_name  |
-                    +-------+--------+
-                            |
-                            |
-                            v
-                    +----------------+
-                    |    PRODUCTS    |
-                    |----------------|
-                    | product_id PK  |
-                    | category_id FK |
-                    | product_name   |
-                    | price          |
-                    | cost           |
-                    +-------+--------+
-                            |
-                            |
-                            v
-                    +----------------+
-                    |  ORDER_ITEMS   |
-                    |----------------|
-                    | order_item_id  |
-                    | order_id FK     |
-                    | product_id FK   |
-                    | quantity        |
-                    | unit_price      |
-                    +-------+---------+
-                            |
-                            |
-                            v
-                    +----------------+
-                    |     ORDERS     |
-                    |----------------|
-                    | order_id PK    |
-                    | customer_id FK |
-                    | order_date     |
-                    | status         |
-                    | region         |
-                    | total_amount   |
-                    +-------+---------+
-                            |
-                            |
-                            v
-                    +----------------+
-                    |   CUSTOMERS    |
-                    |----------------|
-                    | customer_id PK |
-                    | first_name     |
-                    | last_name      |
-                    | email          |
-                    | country        |
-                    | created_at     |
-                    +----------------+
+Customer
+   │
+   │ 1:N
+   ▼
+Orders
+   │
+   │ 1:N
+   ▼
+Order Items
+   │
+   ├──────────────► Products
+   │                    │
+   │                    ▼
+   │                Categories
+   │
+   ├──────────────► Payments
+   │
+   └──────────────► Shipments# E-Commerce Data Model
 
-                    +----------------+
-                    |    PAYMENTS    |
-                    |----------------|
-                    | payment_id PK  |
-                    | order_id FK    |
-                    | payment_method |
-                    | payment_status |
-                    | amount         |
-                    | paid_at        |
-                    +----------------+
+## Overview
+
+The E-Commerce Data Platform uses a layered data model designed to support
+reliable ingestion, analytical workloads, reporting, and downstream data
+products.
+
+The model separates operational entities from analytical representations so
+that source data can evolve without directly breaking downstream consumers.
+
+---
+
+## Core Business Entities
+
+The platform is centered around the following entities:
+
+- Customers
+- Products
+- Categories
+- Orders
+- Order Items
+- Payments
+- Shipments
+
+---
+
+## Entity Relationships
+
+```text
+Customer
+   │
+   │ 1:N
+   ▼
+Orders
+   │
+   │ 1:N
+   ▼
+Order Items
+   │
+   ├──────────────► Products
+   │                    │
+   │                    ▼
+   │                Categories
+   │
+   ├──────────────► Payments
+   │
+   └──────────────► Shipments
