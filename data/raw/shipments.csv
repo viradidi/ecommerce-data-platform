@@ -1,0 +1,16 @@
+shipment_id,order_id,shipment_status,carrier,shipped_date,delivered_date
+7001,1001,Delivered,DHL,2026-02-02,2026-02-04
+7002,1002,Delivered,Sendy,2026-02-03,2026-02-05
+7003,1003,Pending,Sendy,,
+7004,1004,Delivered,DHL,2026-02-05,2026-02-07
+7005,1005,Cancelled,DHL,,
+7006,1006,Delivered,Sendy,2026-02-07,2026-02-09
+7007,1007,Cancelled,DHL,,
+7008,1008,Delivered,Sendy,2026-02-09,2026-02-11
+7009,1009,Delivered,DHL,2026-02-10,2026-02-12
+7010,1010,Delivered,DHL,2026-02-11,2026-02-13
+7011,1011,Delivered,Sendy,2026-02-12,2026-02-14
+7012,1012,Pending,Sendy,,
+7013,1013,Delivered,DHL,2026-02-14,2026-02-16
+7014,1014,Delivered,Sendy,2026-02-15,2026-02-17
+7015,1015,Delivered,DHL,2026-02-16,2026-02-18
