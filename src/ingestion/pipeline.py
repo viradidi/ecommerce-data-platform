@@ -10,10 +10,48 @@ from .csv_loader import load_csv, save_processed
 logger = logging.getLogger(__name__)
 
 
+def ingest_dataset(dataset: str) -> int:
+    """
+    Ingest and validate a single dataset.
+
+    Returns
+    -------
+    int
+        Number of rows successfully processed.
+    """
+
+    logger.info("Ingesting %s", dataset)
+
+    dataframe = load_csv(dataset)
+
+    if dataset == "orders.csv":
+        logger.info("Validating orders dataset")
+
+        validate_orders(dataframe)
+
+        logger.info("Orders validation passed")
+
+    output_name = Path(dataset).name
+
+    save_processed(
+        dataframe,
+        output_name,
+    )
+
+    row_count = len(dataframe)
+
+    logger.info(
+        "Completed %s | rows=%s",
+        dataset,
+        row_count,
+    )
+
+    return row_count
+
+
 def run_ingestion() -> None:
     """
-    Load configured raw datasets, validate them,
-    and save them to the processed layer.
+    Load configured datasets and run the ingestion workflow.
     """
 
     config = load_config()
@@ -23,29 +61,7 @@ def run_ingestion() -> None:
     logger.info("Starting ingestion pipeline")
 
     for dataset in datasets:
-        logger.info("Ingesting %s", dataset)
-
-        dataframe = load_csv(dataset)
-
-        if dataset == "orders.csv":
-            logger.info("Validating orders dataset")
-
-            validate_orders(dataframe)
-
-            logger.info("Orders validation passed")
-
-        output_name = Path(dataset).name
-
-        save_processed(
-            dataframe,
-            output_name,
-        )
-
-        logger.info(
-            "Completed %s | rows=%s",
-            dataset,
-            len(dataframe),
-        )
+        ingest_dataset(dataset)
 
     logger.info(
         "Ingestion pipeline completed successfully"
