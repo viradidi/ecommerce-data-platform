@@ -1,6 +1,7 @@
 from pathlib import Path
 
 from .csv_loader import load_csv, save_processed
+from ..quality.orders import validate_orders
 
 
 DATASETS = [
@@ -15,14 +16,19 @@ DATASETS = [
 
 def run_ingestion() -> None:
     """
-    Load all raw CSV datasets and write them
-    to the processed data directory.
+    Load raw datasets, validate them, and save
+    validated datasets to the processed layer.
     """
 
     for dataset in DATASETS:
         print(f"Ingesting {dataset}...")
 
         dataframe = load_csv(dataset)
+
+        if dataset == "orders.csv":
+            print("Validating orders...")
+            validate_orders(dataframe)
+            print("Orders validation passed.")
 
         output_name = Path(dataset).name
 
