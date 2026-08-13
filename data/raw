@@ -1,1 +1,6 @@
-
+data/raw/customers.csv
+data/raw/products.csv
+data/raw/orders.csv
+data/raw/order_items.csv
+data/raw/payments.csv
+data/raw/shipments.csv
