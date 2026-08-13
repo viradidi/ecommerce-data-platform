@@ -1,4 +1,3 @@
-import pandas as pd
 import pytest
 
 from src.ingestion.pipeline import ingest_dataset
