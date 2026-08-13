@@ -1,6 +1,0 @@
-customer_id,first_name,last_name,email,created_at,updated_at
-1,John,Kamau,john.kamau@example.com,2026-01-05,2026-01-05
-2,Mary,Wanjiku,mary.wanjiku@example.com,2026-01-07,2026-01-07
-3,David,Ochieng,david.ochieng@example.com,2026-01-10,2026-01-10
-4,Grace,Akinyi,grace.akinyi@example.com,2026-01-12,2026-01-12
-5,Peter,Otieno,peter.otieno@example.com,2026-01-15,2026-01-15
