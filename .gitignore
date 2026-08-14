@@ -34,3 +34,9 @@ data/processed/*.csv
 dbt/target/
 dbt/logs/
 dbt/.user.yml
+
+# Local runtime logs
+logs/
+
+# Temporary exported files
+README.md# E-Commerce Data Platform.txt
