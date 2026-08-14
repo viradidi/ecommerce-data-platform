@@ -1,0 +1,11 @@
+product_id,product_name,category,price,cost,in_stock
+1,Laptop Pro,Electronics,1200.00,850.00,1
+2,Wireless Mouse,Electronics,35.00,18.00,1
+3,Mechanical Keyboard,Electronics,95.00,55.00,1
+4,Office Chair,Furniture,250.00,150.00,1
+5,Standing Desk,Furniture,450.00,280.00,0
+6,USB-C Hub,Accessories,65.00,32.00,1
+7,Monitor 27 Inch,Electronics,320.00,210.00,1
+8,Desk Lamp,Accessories,45.00,20.00,1
+9,Webcam HD,Electronics,85.00,48.00,1
+10,Notebook,Stationery,12.00,5.00,1

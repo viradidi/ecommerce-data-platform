@@ -1,0 +1,17 @@
+project:
+  name: ecommerce-data-platform
+  environment: development
+
+data:
+  raw_path: data/raw
+  processed_path: data/processed
+
+ingestion:
+  file_format: csv
+  datasets:
+    - customers.csv
+    - products.csv
+    - orders.csv
+    - order_items.csv
+    - payments.csv
+    - shipments.csv

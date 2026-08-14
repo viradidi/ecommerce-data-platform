@@ -1,31 +1,36 @@
-# Environment
-.env
-
 # Python
 __pycache__/
 *.py[cod]
 *.pyo
-*.pyd
 
-# Airflow
-logs/
-airflow.cfg
+# Virtual environments
+.venv/
+venv/
+env/
 
-# dbt generated files
-dbt/target/
-dbt/logs/
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
 
-# dbt local/user files
-dbt/.user.yml
-
-# IDE
+# IDEs
 .vscode/
 .idea/
 
-# OS
+# OS files
 .DS_Store
 Thumbs.db
 
-# Temporary files
-*.tmp
-*.temp
+# Environment variables
+.env
+
+# Docker / local configuration
+docker-compose.override.yml
+
+# Local data outputs
+data/processed/*.csv
+
+# dbt
+dbt/target/
+dbt/logs/
+dbt/.user.yml
