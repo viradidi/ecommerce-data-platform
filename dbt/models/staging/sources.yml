@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: raw
+    database: data_platform
+    schema: public
+    tables:
+      - name: customer_transactions
+        description: Raw customer transaction data loaded by Airflow.
+        columns:
+          - name: customer_id
+            description: Unique customer identifier.
+          - name: customer_name
+            description: Customer name.
+          - name: amount
+            description: Transaction amount.
+          - name: loaded_at
+            description: Timestamp when the record was loaded into PostgreSQL.

@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: stg_customer_transactions
+    description: Staging model for customer transaction data loaded by Airflow.
+    columns:
+      - name: customer_id
+        description: Unique customer identifier.
+        data_tests:
+          - not_null
+          - unique
+      - name: customer_name
+        description: Customer name.
+        data_tests:
+          - not_null
+      - name: amount
+        description: Transaction amount.
+        data_tests:
+          - not_null
